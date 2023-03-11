@@ -1,2 +1,3 @@
-# python-package-template
-This is a template repository that can be used to quickly create a python package project.
+# contextual-waiting
+
+This package provides support for enhanced context based waiting.

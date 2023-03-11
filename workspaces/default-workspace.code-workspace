@@ -1,0 +1,24 @@
+{
+    "folders": [
+        {
+            "path": "../"
+        }
+    ],
+    "settings": {
+        "python.defaultInterpreterPath": "/home/myron/repos/waitforit/.venv/bin/python3.10",
+        "python.envFile": "/home/myron/repos/waitforit/.cache/development.env",
+        "terminal.integrated.env.linux": {
+            "PYTHONPATH": "/home/myron/repos/waitforit/source/packages"
+        },
+        "terminal.integrated.profiles.linux": {
+            "virtual-env": {
+                "path": "/home/myron/repos/waitforit/.venv/bin/activate"
+            }
+        },
+        "python.analysis.extraPaths": [
+            "/home/myron/repos/waitforit/.venv/lib/python3.10/site-packages",
+            "/home/myron/repos/waitforit/source/packages"
+        ],
+        "python.terminal.activateEnvInCurrentTerminal": true
+    }
+}
