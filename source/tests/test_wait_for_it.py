@@ -4,6 +4,7 @@ import unittest
 import asyncio
 import concurrent
 import time
+import traceback
 
 import ctxwait
 
@@ -94,7 +95,8 @@ class TestWaitForIt(unittest.TestCase):
         
         try:
             future.result()
-        except TimeoutError:
+        except TimeoutError as toerr:
+            errmsg = traceback.format_exc()
             timeout_raised = True
         
         self.assert_(timeout_raised, "A 'TimeoutError' should have been raised.")
