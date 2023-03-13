@@ -61,7 +61,7 @@ def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, dela
         :param timeout: The maximum period of time in seconds that should be waited before timing out.
         :param lkwargs: Additional keyword arguments to pass to the looper function
 
-        :raises AKitTimeoutError: A timeout error with details around the wait condition.
+        :raises TimeoutError: A timeout error with details around the wait condition.
 
         ..note: The 'delay', 'interval' and 'timeout' parameters will be ignored if the 'wctx' parameter
                 is passed as the wctx (WaitContext) parameter includes these values with it.
