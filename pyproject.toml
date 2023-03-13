@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "contextualwaiting"
-description = "A context based wait module with enhanced diagnostic output and debugging experience."
-version = "0.8.0"
+description = "Contextual Waiting"
+version = "0.9.1"
 authors = []
 readme = "README.md"
 license = "LICENSE.txt"
@@ -13,11 +13,10 @@ classifiers = [
 keywords = [
     "python"
 ]
-packages = [{include = "source/packages"}]
+packages = [{ include="ctxwait", from = "source/packages" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
-
 
 [tool.poetry.group.dev.dependencies]
 myst-parser = "^0.18.1"

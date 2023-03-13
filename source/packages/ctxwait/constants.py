@@ -21,8 +21,6 @@ DEFAULT_WAIT_DELAY = 0
 DEFAULT_WAIT_INTERVAL = 5
 DEFAULT_WAIT_TIMEOUT = 60
 
-DEFAULT_WHATFOR_TEMPLATE = "Timeout waiting for {}"
-
 MSG_TEMPL_TIME_COMPONENTS = "    timeout={} start_time={}, end_time={} now_time={} time_diff={}"
 
 class TimeoutState:

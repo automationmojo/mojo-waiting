@@ -24,8 +24,7 @@ import time
 from ctxwait.constants import (
     DEFAULT_WAIT_DELAY,
     DEFAULT_WAIT_INTERVAL,
-    DEFAULT_WAIT_TIMEOUT,
-    DEFAULT_WHATFOR_TEMPLATE
+    DEFAULT_WAIT_TIMEOUT
 )
 
 from ctxwait.timeoutcontext import TimeoutContext
@@ -69,7 +68,7 @@ def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, dela
     """
 
     if what_for is None:
-        what_for = DEFAULT_WHATFOR_TEMPLATE.format(looper.__name__)
+        what_for = "'{}'".format(looper.__name__)
 
     if wctx is None:
         wctx = WaitContext(timeout, interval=interval, delay=delay, what_for=what_for)

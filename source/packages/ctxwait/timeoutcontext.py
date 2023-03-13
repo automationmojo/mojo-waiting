@@ -18,6 +18,8 @@ __license__ = "MIT"
 
 from typing import List, Optional
 
+import os
+
 from datetime import datetime, timedelta
 
 from ctxwait.constants import (
