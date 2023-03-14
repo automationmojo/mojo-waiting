@@ -1,7 +1,7 @@
 
 import unittest
 
-import concurrent
+import concurrent.futures
 import time
 import traceback
 
