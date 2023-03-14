@@ -117,7 +117,7 @@ if [ ! -f $INITIALIZED_FILE ]; then
 
     popd
 
-    customize_activation_scripts
+    customize_activation_script
 
     touch $INITIALIZED_FILE
 
