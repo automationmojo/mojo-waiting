@@ -72,7 +72,12 @@ function customize_activate_script() {
 
     echo "# ================ Development Environment Customizations ================"
     echo ""  >> $ACTIVATE_SCRIPT
-    echo "source $ENV_FILE" >> $ACTIVATE_SCRIPT
+    echo "if [ -f $ENV_FILE ]" >> $ACTIVATE_SCRIPT
+    echo "then" >> $ACTIVATE_SCRIPT
+    echo "    set -a" >> $ACTIVATE_SCRIPT
+    echo "    source $ENV_FILE" >> $ACTIVATE_SCRIPT
+    echo "    set +a" >> $ACTIVATE_SCRIPT
+    echo "fi" >> $ACTIVATE_SCRIPT
     echo "" >> $ACTIVATE_SCRIPT
 
     # Custom commandline addition
