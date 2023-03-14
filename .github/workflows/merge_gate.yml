@@ -34,11 +34,6 @@ jobs:
       - name: Print Python Version
         run: python3 -c "import sys; print(sys.version)"
 
-      - name: Install Base Dependencies
-        run: |
-          apt-get install python3-pip
-          apt-get install python3-virtualenv
-
       - name: Setup the Virtual Environment
         run: |
           ./repository-setup/rehome-repository
