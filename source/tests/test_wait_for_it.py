@@ -1,7 +1,6 @@
 
 import unittest
 
-import asyncio
 import concurrent
 import time
 import traceback
