@@ -36,8 +36,8 @@ jobs:
 
       - name: Install Base Dependencies
         run: |
-          python3 -m ensurepip
-          python3 -m pip install virtualenv
+          apt install python3-pip
+          apt install python3-virtualenv
 
       - name: Setup the Virtual Environment
         run: |
