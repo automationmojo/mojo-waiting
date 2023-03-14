@@ -36,8 +36,8 @@ jobs:
 
       - name: Install Base Dependencies
         run: |
-          apt install python3-pip
-          apt install python3-virtualenv
+          apt-get install python3-pip
+          apt-get install python3-virtualenv
 
       - name: Setup the Virtual Environment
         run: |
