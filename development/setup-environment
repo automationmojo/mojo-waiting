@@ -44,8 +44,7 @@ PYTHON_VERSION=""
 source $ENV_FILE
 
 # The PYTHON_VERSION can be pinned in the development environment config
-if [ -z "$PYTHON_VERSION" ]
-then
+if [ -z "$PYTHON_VERSION" ]; then
     echo "ERROR: The 'PYTHON_VERSION' variable should be set in the development environment file."
     echo "    location=$ENV_FILE"
     exit 1
@@ -80,17 +79,17 @@ function customize_activate_script() {
     COMMAND_ALIAS=""
     CUSTOM_CLI_ENTRY_SCRIPT=""
 
-    if [ ! -z "$CUSTOM_CLI_ENTRY_SCRIPT" || ! -z "$CUSTOM_CLI_ENTRY_SCRIPT" ]
-    then
-        if [ ! -z "$CUSTOM_CLI_ENTRY_SCRIPT" && ! -z "$CUSTOM_CLI_ENTRY_SCRIPT" ]
-        then
-		echo "# Create an alias for the `$COMMAND_ALIAS` command" >> $ACTIVATE_SCRIPT
-		echo "alias $COMMAND_ALIAS=\"python3 $CUSTOM_CLI_ENTRY_SCRIPT\"" >> $ACTIVATE_SCRIPT
-		echo ""  >> $ACTIVATE_SCRIPT
+    if [ ! -z "$CUSTOM_CLI_ENTRY_SCRIPT" ]; then
+
+        if [ ! -z "$COMMAND_ALIAS" && ! -z "$CUSTOM_CLI_ENTRY_SCRIPT" ]; then
+            echo "# Create an alias for the `$COMMAND_ALIAS` command" >> $ACTIVATE_SCRIPT
+            echo "alias $COMMAND_ALIAS=\"python3 $CUSTOM_CLI_ENTRY_SCRIPT\"" >> $ACTIVATE_SCRIPT
+            echo ""  >> $ACTIVATE_SCRIPT
+        else
+            echo "To add a custom commandline, you must set both 'COMMAND_ALIAS' and 'CUSTOM_CLI_ENTRY_SCRIPT'"
+            exit 1
         fi
-    else
-        echo "To add a custom commandline, you must set both 'COMMAND_ALIAS' and 'CUSTOM_CLI_ENTRY_SCRIPT'"
-        exit 1
+
     fi
     
 }
