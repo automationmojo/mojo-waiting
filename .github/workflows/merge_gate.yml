@@ -41,6 +41,7 @@ jobs:
       
       - name: Run Tests
         run: |
+          cat ./.venv/bin/activate
           source ./.venv/bin/activate
           python3 ./source/tests/test_wait_for_it.py
           deactivate
