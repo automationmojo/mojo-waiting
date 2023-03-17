@@ -1,4 +1,4 @@
-# Contextual Waiting Module - contextualwaiting
+# Automation Mojo Waiting Module - mojo-waiting
 
 This package provides support for enhanced context based waiting.  The waiting code
 patterns used are designed to present the best results in test stacktraces presented
