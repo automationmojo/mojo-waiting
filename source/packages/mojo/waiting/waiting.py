@@ -21,13 +21,13 @@ import threading
 import time
 
 
-from ctxwait.constants import (
+from mojo.waiting.constants import (
     DEFAULT_WAIT_DELAY,
     DEFAULT_WAIT_INTERVAL,
     DEFAULT_WAIT_TIMEOUT
 )
 
-from ctxwait.timeoutcontext import TimeoutContext
+from mojo.waiting.timeoutcontext import TimeoutContext
 
 class WaitContext(TimeoutContext):
     """

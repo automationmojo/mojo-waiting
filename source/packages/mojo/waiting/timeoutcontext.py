@@ -22,7 +22,7 @@ import os
 
 from datetime import datetime, timedelta
 
-from ctxwait.constants import (
+from mojo.waiting.constants import (
     TimeoutState,
     MSG_TEMPL_TIME_COMPONENTS
 )
