@@ -2,17 +2,17 @@
 
 This package provides support for enhanced context based waiting.  The waiting code
 patterns used are designed to present the best results in test stacktraces presented
-when a wait fails.  This makes the `contextualwaiting` module perfect for use with
+when a wait fails.  This makes the `mojo.waiting` module perfect for use with
 test frameworks such as `pytest` and `testplus` that show code context in the error
 report stack traces.
 
-Another important aspect of the `contextualwaiting` module is that it uses `datetime`
+Another important aspect of the `mojo.waiting` module is that it uses `datetime`
 timestamps and `timespan` for lengths of time so timeouts in error reporting are easier
 to interpret.
 
 ```
     Traceback (most recent call last):
-    File "/home/myron/repos/contextualwaiting/source/tests/test_wait_for_it.py", line 97, in test_basic_wait_for_it_timeout
+    File "/home/myron/repos/mojo.waiting/source/tests/test_wait_for_it.py", line 97, in test_basic_wait_for_it_timeout
         future.result()
     File "/usr/lib/python3.10/concurrent/futures/_base.py", line 451, in result
         return self.__get_result()
@@ -20,15 +20,15 @@ to interpret.
         raise self._exception
     File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
         result = self.fn(*self.args, **self.kwargs)
-    File "/home/myron/repos/contextualwaiting/source/tests/test_wait_for_it.py", line 88, in wait_task
+    File "/home/myron/repos/mojo.waiting/source/tests/test_wait_for_it.py", line 88, in wait_task
         ctxwait.wait_for_it(wait_helper, interval=.5, timeout=2)
-    File "/home/myron/repos/contextualwaiting/source/packages/ctxwait/waiting.py", line 103, in wait_for_it
+    File "/home/myron/repos/mojo.waiting/source/packages/ctxwait/waiting.py", line 103, in wait_for_it
         raise toerr
     TimeoutError: Timeout waiting for 'wait_helper':
         timeout=2 start_time=2023-03-13 14:57:29.860302, end_time=2023-03-13 14:57:31.860302 now_time=2023-03-13 14:57:31.863681 time_diff=0:00:02.003379
 ```
 
-The following is an example of how the `contextualwaiting` module is used.
+The following is an example of how the `mojo.waiting` module is used.
 
 ```{python}
 

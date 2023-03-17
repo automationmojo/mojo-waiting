@@ -5,7 +5,9 @@ import concurrent.futures
 import time
 import traceback
 
-import ctxwait
+from mojo.waiting.constants import DEFAULT_WAIT_TIMEOUT, DEFAULT_WAIT_INTERVAL
+from mojo.waiting.waitfunction import wait_for_it
+from mojo.waiting.waitmodel import WaitContext
 
 class TestWaitForIt(unittest.TestCase):
 
@@ -16,24 +18,24 @@ class TestWaitForIt(unittest.TestCase):
             
             def wait_task():
 
-                def wait_helper(wctx: ctxwait.WaitContext):
+                def wait_helper(wctx: WaitContext):
                     success = finished
                     if not success:
                         print("test_basic_wait_for_it: still waiting")
 
                     return success
 
-                ctxwait.wait_for_it(wait_helper)
+                wait_for_it(wait_helper)
 
                 return
             
             future = pool.submit(wait_task)
 
-            time.sleep(ctxwait.DEFAULT_WAIT_INTERVAL * 2)
+            time.sleep(DEFAULT_WAIT_INTERVAL * 2)
 
             finished = True
 
-            concurrent.futures.wait([future], ctxwait.DEFAULT_WAIT_TIMEOUT)
+            concurrent.futures.wait([future], DEFAULT_WAIT_TIMEOUT)
 
         return
 
@@ -44,7 +46,7 @@ class TestWaitForIt(unittest.TestCase):
             
             def wait_task():
 
-                def wait_helper(wctx: ctxwait.WaitContext):
+                def wait_helper(wctx: WaitContext):
                     nonlocal final_attempt_triggered
 
                     success = False
@@ -54,13 +56,13 @@ class TestWaitForIt(unittest.TestCase):
 
                     return success
 
-                ctxwait.wait_for_it(wait_helper, interval=.5, timeout=2)
+                wait_for_it(wait_helper, interval=.5, timeout=2)
 
                 return
             
             future = pool.submit(wait_task)
 
-            concurrent.futures.wait([future], ctxwait.DEFAULT_WAIT_TIMEOUT)
+            concurrent.futures.wait([future], DEFAULT_WAIT_TIMEOUT)
         
         self.assert_(final_attempt_triggered, "The final_attempt should have been triggered.")
 
@@ -74,7 +76,7 @@ class TestWaitForIt(unittest.TestCase):
             
             def wait_task():
 
-                def wait_helper(wctx: ctxwait.WaitContext):
+                def wait_helper(wctx: WaitContext):
                     nonlocal final_attempt_triggered
 
                     success = False
@@ -84,13 +86,13 @@ class TestWaitForIt(unittest.TestCase):
 
                     return success
 
-                ctxwait.wait_for_it(wait_helper, interval=.5, timeout=2)
+                wait_for_it(wait_helper, interval=.5, timeout=2)
 
                 return
             
             future = pool.submit(wait_task)
 
-            concurrent.futures.wait([future], ctxwait.DEFAULT_WAIT_TIMEOUT)
+            concurrent.futures.wait([future], DEFAULT_WAIT_TIMEOUT)
         
         try:
             future.result()

@@ -1,7 +1,7 @@
 """
-.. module:: waiting
+.. module:: waitfunction
     :platform: Darwin, Linux, Unix, Windows
-    :synopsis: Module which contains framework timeout constants.
+    :synopsis: Module which contains the wait_for_it function.
 
 .. moduleauthor:: Myron Walker <myron.walker@gmail.com>
 """
@@ -15,9 +15,8 @@ __email__ = "myron.walker@gmail.com"
 __status__ = "Development" # Prototype, Development or Production
 __license__ = "MIT"
 
-from typing import Any, Dict, List, Optional, Protocol
+from typing import Any, Dict, Optional
 
-import threading
 import time
 
 
@@ -27,22 +26,8 @@ from mojo.waiting.constants import (
     DEFAULT_WAIT_TIMEOUT
 )
 
-from mojo.waiting.timeoutcontext import TimeoutContext
 
-class WaitContext(TimeoutContext):
-    """
-        Place holder for differences that might arise between the base TimeoutContext and
-        the WaitContext used for wait loops.
-    """
-
-class WaitCallback(Protocol):
-    def __call__(self, wctx: TimeoutContext, *args, **kwargs) -> bool:
-        """
-            This specifies a callable object that can have variable arguments but
-            that must have a final_attempt keywork arguement.  The expected behavior
-            of the callback is to return false if the expected condition has not
-            been meet.
-        """
+from mojo.waiting.waitmodel import WaitCallback, WaitContext
 
 
 def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, delay: float=DEFAULT_WAIT_DELAY,
@@ -107,73 +92,4 @@ def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, dela
     return
 
 
-class WaitGate:
-
-    def __init__(self, gate: threading.Event, message: Optional[str]=None, timeout: Optional[float]=None,
-                 timeout_args: Optional[list]=None):
-        self._gate = gate
-        self._message = message
-        self._timeout = timeout
-        self._timeout_args = timeout_args
-        return
-
-    @property
-    def gate(self) -> threading.Event:
-        return self._gate
-
-    @property
-    def message(self) -> str:
-        return self._message
-
-    @property
-    def timeout(self) -> float:
-        return self._timeout
-
-    @property
-    def timeout_args(self) -> list:
-        return self._timeout_args
-
-    def clear(self):
-        self._gate.clear()
-        return
-
-    def is_set(self) -> bool:
-        rtnval = self._gate.is_set()
-        return rtnval
-
-    def set(self):
-        self._gate.set()
-        return
-
-    def wait(self, timeout: Optional[float]=None, raise_timeout=False):
-
-        if timeout is None:
-            timeout = self._timeout
-
-        rtnval = self._gate.wait(timeout=self._timeout)
-        if not rtnval:
-            errmsg = ""
-            raise TimeoutError(errmsg)
-
-        return rtnval
-
-class WaitingScope:
-    def __init__(self, gates: List[WaitGate],):
-        self._gates = gates
-        return
-
-    def __enter__(self):
-        for gate in self._gates:
-            gate.clear()
-        return
-    
-    def __exit__(self, ex_type, ex_inst, ex_tb):
-        return
-    
-    def wait(self):
-
-        for gate in self.gates:
-            gate.wait()
-
-        return
 
