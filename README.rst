@@ -1,5 +1,3 @@
-.. highlight:: rst
-
 =============================================
 Automation Mojo Waiting Module - mojo-waiting
 =============================================
