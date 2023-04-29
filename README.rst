@@ -88,3 +88,7 @@ can have variable arguments and keyword arguements but the first parameter to th
 must be a `WaitContext` object.
 
 
+.. toctree::
+
+   userguide/userguide.rst
+
