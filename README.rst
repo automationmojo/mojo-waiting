@@ -87,8 +87,7 @@ The `wait_for_it` function must be passed a method that follows the `WaitCallbac
 can have variable arguments and keyword arguements but the first parameter to the `WaitCallback` method
 must be a `WaitContext` object.
 
-
 .. toctree::
 
-   userguide/userguide.rst
+   Coding Standards <10-00-coding-standards.rst>
 
