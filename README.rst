@@ -1,4 +1,3 @@
-.. highlight:: rst
 
 =============================================
 Automation Mojo Waiting Module - mojo-waiting
@@ -15,6 +14,7 @@ timestamps and `timespan` for lengths of time so timeouts in error reporting are
 to interpret.
 
 .. code::
+
     Traceback (most recent call last):
     File "/home/myron/repos/mojo.waiting/source/tests/test_wait_for_it.py", line 97, in test_basic_wait_for_it_timeout
         future.result()
