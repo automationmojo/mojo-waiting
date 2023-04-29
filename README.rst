@@ -14,7 +14,7 @@ Another important aspect of the `mojo.waiting` module is that it uses `datetime`
 timestamps and `timespan` for lengths of time so timeouts in error reporting are easier
 to interpret.
 
-```
+.. code::
     Traceback (most recent call last):
     File "/home/myron/repos/mojo.waiting/source/tests/test_wait_for_it.py", line 97, in test_basic_wait_for_it_timeout
         future.result()
@@ -30,11 +30,11 @@ to interpret.
         raise toerr
     TimeoutError: Timeout waiting for 'wait_helper':
         timeout=2 start_time=2023-03-13 14:57:29.860302, end_time=2023-03-13 14:57:31.860302 now_time=2023-03-13 14:57:31.863681 time_diff=0:00:02.003379
-```
+
 
 The following is an example of how the `mojo.waiting` module is used.
 
-```{python}
+.. code:: python
 
     from ctxwait import WaitContext, wait_for_it
 
@@ -53,12 +53,12 @@ The following is an example of how the `mojo.waiting` module is used.
         return finished
 
     wait_for_it(some_wait_helper)
-```
+
 
 The `wait_for_it` method has many different parameters that can be used to override the
 behavior of the wait loop.
 
-```{python}
+.. code:: python
 
     def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, delay: float=DEFAULT_WAIT_DELAY,
                 interval: float=DEFAULT_WAIT_INTERVAL, timeout: float=DEFAULT_WAIT_TIMEOUT,
@@ -82,7 +82,6 @@ behavior of the wait loop.
                     is passed as the wctx (WaitContext) parameter includes these values with it.
         """
         ...
-```
 
 The `wait_for_it` function must be passed a method that follows the `WaitCallback` protocol.  The function
 can have variable arguments and keyword arguements but the first parameter to the `WaitCallback` method
