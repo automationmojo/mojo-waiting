@@ -1,8 +1,10 @@
 [tool.poetry]
 name = "mojo-waiting"
 description = "Automation Mojo Waiting Module"
-version = "1.0.1"
-authors = []
+version = "1.0.2"
+authors = [
+    "Myron Walker <myron.walker@gmail.com>"
+]
 readme = "README.rst"
 license = "LICENSE.txt"
 classifiers = [
