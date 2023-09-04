@@ -3,8 +3,12 @@
 Automation Mojo Waiting Module - mojo-waiting
 =============================================
 
-This package provides support for enhanced context based waiting.  The waiting code
-patterns used are designed to present the best results in test stacktraces presented
+This package provides support for enhanced context based waiting.  This module will greatly enhance the
+information presented when a wait timeout occurs.  Wait contexts are particularly useful for distributed
+automation.  Distributed automation scenarios required lots of wait loops in order wait for the effects
+of an effect to distributed throughout the distributed system.
+
+The waiting code patterns used are designed to present the best results in test stacktraces presented
 when a wait fails.  This makes the `mojo.waiting` module perfect for use with
 test frameworks such as `pytest` and `testplus` that show code context in the error
 report stack traces.
