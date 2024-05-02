@@ -1,7 +1,7 @@
 """
 .. module:: waitmodel
     :platform: Darwin, Linux, Unix, Windows
-    :synopsis: Module which contains the object used in conjunction with waiting.
+    :synopsis: Module which contains objects used in conjunction with waiting.
 
 .. moduleauthor:: Myron Walker <myron.walker@gmail.com>
 """
@@ -9,13 +9,9 @@
 __author__ = "Myron Walker"
 __copyright__ = "Copyright 2023, Myron W Walker"
 __credits__ = []
-__version__ = "1.0.0"
-__maintainer__ = "Myron Walker"
-__email__ = "myron.walker@gmail.com"
-__status__ = "Development" # Prototype, Development or Production
-__license__ = "MIT"
 
-from typing import Any, Dict, List, Optional, Protocol, Type
+
+from typing import List, Optional, Protocol, Type
 
 from types import TracebackType
 
@@ -26,9 +22,6 @@ import time
 from datetime import datetime, timedelta
 
 from mojo.waiting.constants import (
-    DEFAULT_WAIT_DELAY,
-    DEFAULT_WAIT_INTERVAL,
-    DEFAULT_WAIT_TIMEOUT,
     TimeoutState,
     MSG_TEMPL_TIME_COMPONENTS,
 )
