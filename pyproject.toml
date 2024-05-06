@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "mojo-waiting"
 description = "Automation Mojo Waiting Module"
-version = "1.3.1"
+version = "1.3.2"
 authors = [
     "Myron Walker <myron.walker@gmail.com>"
 ]
@@ -21,7 +21,7 @@ homepage = "http://automationmojo.com"
 repository = "https://github.com/automationmojo/mojo-waiting"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4.0"
+python = ">=3.9,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 myst-parser = "^0.18.1"
