@@ -28,7 +28,7 @@ from mojo.waiting.waitmodel import WaitCallback, WaitContext
 
 def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, delay: float=DEFAULT_WAIT_DELAY,
                 interval: float=DEFAULT_WAIT_INTERVAL, timeout: float=DEFAULT_WAIT_TIMEOUT,
-                lkwargs: Dict[Any, Any]={}, wctx: Optional[WaitContext]=None):
+                lkwargs: Optional[Dict[Any, Any]]=None, wctx: Optional[WaitContext]=None):
     """
         Provides for convenient mechanism to wait for criteria to be met before proceeding.
 
@@ -47,6 +47,9 @@ def wait_for_it(looper: WaitCallback, *largs, what_for: Optional[str]=None, dela
         ..note: The 'delay', 'interval' and 'timeout' parameters will be ignored if the 'wctx' parameter
                 is passed as the wctx (WaitContext) parameter includes these values with it.
     """
+
+    if lkwargs is None:
+        lkwargs = {}
 
     if what_for is None:
         what_for = "'{}'".format(looper.__name__)
