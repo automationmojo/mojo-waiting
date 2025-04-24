@@ -1,7 +1,7 @@
 ========================================
 DEPRICATED - THIS MODULE WILL BE REMOVED
 ========================================
-This package will be removed on Aug 1st, the root namespace 'mojo.*' conflicts with
+This package will be removed on Aug 1st, 2025, the root namespace 'mojo.*' conflicts with
 the 'mojo' programming language.   For information about using the newer packages,
 contact Automation Mojo at:
 
