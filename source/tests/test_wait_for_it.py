@@ -64,7 +64,7 @@ class TestWaitForIt(unittest.TestCase):
 
             concurrent.futures.wait([future], DEFAULT_WAIT_TIMEOUT)
         
-        self.assert_(final_attempt_triggered, "The final_attempt should have been triggered.")
+        self.assertTrue(final_attempt_triggered, "The final_attempt should have been triggered.")
 
         return
     
@@ -100,7 +100,7 @@ class TestWaitForIt(unittest.TestCase):
             errmsg = traceback.format_exc()
             timeout_raised = True
         
-        self.assert_(timeout_raised, "A 'TimeoutError' should have been raised.")
+        self.assertTrue(timeout_raised, "A 'TimeoutError' should have been raised.")
 
         return
 
